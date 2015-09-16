@@ -33,14 +33,19 @@ public class CounterActivity extends AppCompatActivity {
                 final TextView txtValue = (TextView) findViewById(R.id.people_counter);
                 txtValue.setText(Integer.toString(ans));
 
-                //System.out.println(ans);
-
-               // textout.setText(ans);
-
-              //  setText(ans);
-               // n1 = ans;
             }
 
+        });
+
+        mMinusButton = (Button) findViewById(R.id.minus_button);
+        mMinusButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+        public void onClick(View v) {
+                int ans = n1--;
+
+                final TextView txtValue = (TextView) findViewById(R.id.people_counter);
+                txtValue.setText(Integer.toString(ans));
+            }
         });
 
     }
