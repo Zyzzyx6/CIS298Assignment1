@@ -8,30 +8,38 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class CounterActivity extends AppCompatActivity {
 
-    private Button mPlusButton;
-    private Button mMinusButton;
-    private TextView textout;
+    private Button mPlusButton;   //
+    private Button mMinusButton;  //
+    private TextView textout;     //
 
-    int n1 = 0;
-    int ans = 0;
+    int n1 = 1; //declare n1 intial value
+    int ans = 0;   //declare ans initial value
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_counter);
 
-        mPlusButton = (Button) findViewById(R.id.plus_button);
-        mPlusButton.setOnClickListener(new View.OnClickListener() {
+        mPlusButton = (Button) findViewById(R.id.plus_button);  //Reference plus_button id in XML
+        mPlusButton.setOnClickListener(new View.OnClickListener() {  //OnClick Listener for plus button
             @Override
         public void onClick(View v) {
-                //Do something here
-                int ans = n1++;
+
+                int ans = n1++;  //Add 1 to previous click value
 
                 final TextView txtValue = (TextView) findViewById(R.id.people_counter);
-                txtValue.setText(Integer.toString(ans));
+                txtValue.setText(Integer.toString(ans));  //set displayed text to value of ans
+
+              if (ans == 20) {          //Check if counter has reached 20 if so display toast
+
+                        Toast.makeText(CounterActivity.this,
+                                R.string.twenty_toast,
+                                Toast.LENGTH_SHORT).show();
+                    }
 
             }
 
@@ -41,12 +49,22 @@ public class CounterActivity extends AppCompatActivity {
         mMinusButton.setOnClickListener(new View.OnClickListener() {
             @Override
         public void onClick(View v) {
-                int ans = n1--;
+                int ans = n1--;  //subtract 1 from previous value of n1
 
                 final TextView txtValue = (TextView) findViewById(R.id.people_counter);
-                txtValue.setText(Integer.toString(ans));
+                txtValue.setText(Integer.toString(ans));  //set displayed text to value of ans
+
+                if (ans == 20) {        //Check if counter has reached 20 if so display toast
+
+
+                    Toast.makeText(CounterActivity.this,
+                            R.string.twenty_toast,
+                            Toast.LENGTH_SHORT).show();
+                }
             }
         });
+
+
 
     }
 

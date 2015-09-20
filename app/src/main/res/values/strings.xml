@@ -4,5 +4,6 @@
     <string name="people_counter">0</string>
     <string name="plus_button">+</string>
     <string name="minus_button">-</string>
+    <string name="twenty_toast">Counter is 20</string>
     <string name="action_settings">Settings</string>
 </resources>
