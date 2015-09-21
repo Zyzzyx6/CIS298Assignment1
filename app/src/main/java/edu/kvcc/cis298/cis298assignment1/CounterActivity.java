@@ -13,15 +13,16 @@ public class CounterActivity extends AppCompatActivity {
 
     private Button mPlusButton;   //
     private Button mMinusButton;  //
-
+    private TextView txtValue;
 
     int n1 = 1; //declare n1 intial value
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_counter);
+
+        txtValue = (TextView) findViewById(R.id.people_counter);
 
         mPlusButton = (Button) findViewById(R.id.plus_button);  //Reference plus_button id in XML
         mPlusButton.setOnClickListener(new View.OnClickListener() {  //OnClick Listener for plus button
@@ -31,7 +32,6 @@ public class CounterActivity extends AppCompatActivity {
 
                 int ans = n1++;  //Add 1 to previous click value
 
-                TextView txtValue = (TextView) findViewById(R.id.people_counter);
                 txtValue.setText(Integer.toString(ans));  //set displayed text to value of ans
 
               if (ans == 20) {          //Check if counter has reached 20 if so display toast
@@ -49,13 +49,12 @@ public class CounterActivity extends AppCompatActivity {
         mMinusButton.setOnClickListener(new View.OnClickListener() {
             @Override
         public void onClick(View v) {
+
                 int ans = n1--;  //subtract 1 from previous value of n1
 
-                final TextView txtValue = (TextView) findViewById(R.id.people_counter);
                 txtValue.setText(Integer.toString(ans));  //set displayed text to value of ans
 
                 if (ans == 20) {        //Check if counter has reached 20 if so display toast
-
 
                     Toast.makeText(CounterActivity.this,
                             R.string.twenty_toast,
@@ -72,7 +71,6 @@ public class CounterActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
-
 
         @Override
     public boolean onOptionsItemSelected(MenuItem item) {
