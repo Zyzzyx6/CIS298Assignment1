@@ -6,7 +6,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,10 +13,10 @@ public class CounterActivity extends AppCompatActivity {
 
     private Button mPlusButton;   //
     private Button mMinusButton;  //
-    private TextView textout;     //
+
 
     int n1 = 1; //declare n1 intial value
-    int ans = 0;   //declare ans initial value
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,12 +25,13 @@ public class CounterActivity extends AppCompatActivity {
 
         mPlusButton = (Button) findViewById(R.id.plus_button);  //Reference plus_button id in XML
         mPlusButton.setOnClickListener(new View.OnClickListener() {  //OnClick Listener for plus button
+
             @Override
         public void onClick(View v) {
 
                 int ans = n1++;  //Add 1 to previous click value
 
-                final TextView txtValue = (TextView) findViewById(R.id.people_counter);
+                TextView txtValue = (TextView) findViewById(R.id.people_counter);
                 txtValue.setText(Integer.toString(ans));  //set displayed text to value of ans
 
               if (ans == 20) {          //Check if counter has reached 20 if so display toast
@@ -64,8 +64,6 @@ public class CounterActivity extends AppCompatActivity {
             }
         });
 
-
-
     }
 
     @Override
@@ -75,10 +73,7 @@ public class CounterActivity extends AppCompatActivity {
         return true;
     }
 
-/*int a = 2;
-    int b = 3;
-    System.out.println(a+b);
-    */
+
         @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
